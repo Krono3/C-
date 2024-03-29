@@ -142,3 +142,83 @@ int main(){
     
     return 0;
 }
+
+
+
+
+////////////////////////////////////////////////////////////
+
+#include "util.h"
+#include <string>
+
+bool isRunning = true;
+
+int numCoins = 100;
+
+string translateNum(int num){
+    
+    if(num <= 6){
+        
+        
+        return "LO";
+        
+    }else if(num >= 8){
+        
+        return "HI";
+        
+    }else{
+        
+        return "MID";
+    }
+    
+}
+
+
+void getGuess(int currentWager){
+    
+    int rannum = randInt(1, 13);
+    
+    cout << "Enter LO to guess number 1-6" << endl;
+    cout << "Enter HI to guess number 8-13" << endl;
+    
+    string inp = readLine("Your guess: ");
+    
+    cout << "The number is " << rannum << endl;
+    
+    if(translateNum(rannum).find("LO") && inp.find("LO")){
+        
+        cout << "You win!\n";
+        
+        numCoins += currentWager;
+        
+    }else if(translateNum(rannum).find("HI") && inp.find("HI")){
+        
+        cout << "You win!\n";
+        
+        numCoins += currentWager;
+        
+    }else{
+        
+        cout << "You lose!\n";
+        
+        numCoins -= currentWager;
+    }
+}
+int main(){
+    int wager;
+    
+    while(isRunning){
+        cout << "You currently have " << numCoins << " coins.\n"; 
+        wager = readInt("How much would you like to wager?");
+        
+        getGuess(wager);
+        
+        if (numCoins == 0) {
+            isRunning = false;
+            cout << "Good Game!\n";
+        }
+    }
+    
+    
+    return 0;
+}
