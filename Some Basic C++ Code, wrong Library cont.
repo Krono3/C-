@@ -1,0 +1,40 @@
+#include "util.h"
+
+int main(){
+   
+int walks = 1000;
+    
+    double ts = 0;
+    
+    for(int i = 0; i < walks; i++){
+        
+        int step = 0;
+        
+        int loc = 3;
+        
+        while(loc > 0 && loc < 6){
+            step ++;
+            
+            int ran = randInt(1, 2);
+            
+            if(ran == 1){
+            
+                loc ++;
+            
+            }
+            else{
+            
+                loc --;
+            }
+           
+            
+        }
+        ts += step;
+        
+        
+    }
+    
+    cout << ts / walks << endl;
+    
+    return 0;
+}
