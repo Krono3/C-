@@ -1,0 +1,28 @@
+#include "util.h"
+
+int main()
+{
+    cout << "Roll "; 
+    
+    cout << "\tDie 1";
+    
+    cout << "\tDie 2";
+    
+    cout << "\tTotal" << endl;
+    
+    for(int i = 1; i < 11; i++){
+        
+        cout << i;
+        
+        int a = randInt(1, 6);
+        cout << "\t" << a;
+        
+        int b = randInt(1, 6);
+        cout << "\t" << b;
+        
+        int total = a + b;
+        cout << "\t" << total << endl;
+    }
+    
+    return 0;
+}
