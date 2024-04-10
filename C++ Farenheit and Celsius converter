@@ -1,0 +1,31 @@
+#include "util.h"
+#include <cmath>
+
+double que = readDouble("Please enter a temperature: ");
+
+double F = que;
+double C = que;
+
+void fahrenheit(){
+    
+    int F = C * 9 / 5 + 32;
+    
+    cout << C << " degrees Celsius is " << F << " degrees Fahrenheit" << endl;
+}
+
+void celsius(){
+    
+    int C = (F - 32) * 5 / 9;
+    
+    cout << F << " degrees Fahreinheit is " << C << " degrees Celsius" << endl;
+    
+}
+
+int main(){
+    
+    fahrenheit();
+    celsius();
+
+    
+    return 0;
+}
