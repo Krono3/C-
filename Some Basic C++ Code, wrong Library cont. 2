@@ -1,0 +1,24 @@
+#include "util.h"
+
+void coinConverter(int quarters, int dimes, int nickels, int pennies){
+    double total = 0;
+    
+    total += 0.25 * quarters;
+    total += 0.10 * dimes;
+    total += 0.05 * nickels;
+    total += 0.01 * pennies;
+
+    cout << "Your total is $" << total << endl;
+}
+
+int main(){
+    
+    int quarters = readInt("Please enter the number quaters: ");
+    int dimes = readInt("Please enter the number dimes: ");
+    int nickels = readInt("Please enter the number nickels: ");
+    int pennies = readInt("Please enter the number pennies: ");
+    
+    coinConverter(quarters, dimes, nickels, pennies);
+    
+    return 0;
+}
