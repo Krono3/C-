@@ -1,0 +1,71 @@
+#include "util.h"
+
+int currentPlayer = 1;
+// player 1 is the user
+
+int tokens = 15;
+
+bool game = true;
+
+void userTurn(){
+    
+    currentPlayer = 1;
+    
+    cout << "There are " << tokens << " tokens remaining" << endl;
+    
+    int userGrab = readInt("Your turn - pick up to 3: ");
+    
+    if(userGrab <= 3){
+        
+        int newTokens = tokens - userGrab;
+        
+        cout << newTokens << endl;
+        
+        tokens = newTokens;
+    }
+    
+    else{
+        cout << "Enter a number up to 3" << endl;
+    }
+    
+    
+}
+
+void computerTurn(){
+    
+    currentPlayer = 0;
+    
+    cout << "There are " << tokens << " tokens remaining" << endl;
+    
+    int ranGrab = randInt(1, 3);
+    
+    int newTokens = tokens - ranGrab;
+    
+    tokens = newTokens;
+    
+   cout << "Computer takes " << ranGrab << endl;
+    
+}
+
+int main()
+{
+    while(tokens > 0){
+        
+    userTurn();
+    computerTurn();
+    
+    }
+    
+    if(currentPlayer == 1){
+        
+        cout << "Game over: User wins!";
+        
+    }
+    else{
+        
+        cout << "Game over: Computer wins!";
+        
+    }
+    
+    return 0;
+}
